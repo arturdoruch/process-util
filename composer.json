@@ -1,0 +1,23 @@
+{
+    "name": "arturdoruch/process-util",
+    "description": "Process utility tools.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Artur Doruch",
+            "email": "arturdoruch@interia.pl"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "suggest": {
+        "arturdoruch/filesystem": "For using MemoryUsageLimiter"
+    },
+    "autoload": {
+        "psr-4": {
+            "ArturDoruch\\ProcessUtil\\": ""
+        }
+    }
+}
