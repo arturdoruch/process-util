@@ -39,7 +39,11 @@ class DoctrineProcessingPointManager implements ProcessingPointManagerInterface
         }
     }
 
-
+    /**
+     * @param string $identifier The process identifier. Custom name of the processing database records.
+     *
+     * @return ProcessingPoint
+     */
     public function get(string $identifier): ProcessingPoint
     {
         if (!$point = $this->entityManager->getRepository($this->entityClass)->find($identifier)) {
@@ -68,7 +72,9 @@ class DoctrineProcessingPointManager implements ProcessingPointManagerInterface
         ]);
     }
 
-
+    /**
+     * @param string $identifier The process identifier. Custom name of the processing database records.
+     */
     public function remove(string $identifier)
     {
         $this->entityManager->getConnection()->delete($this->tableName, [

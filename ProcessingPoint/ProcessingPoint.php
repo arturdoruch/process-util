@@ -10,18 +10,19 @@ namespace ArturDoruch\ProcessUtil\ProcessingPoint;
 class ProcessingPoint
 {
     /**
-     * @var string The process identifier. The path to the processing file or custom name.
+     * @var string
      */
     protected $identifier;
 
     /**
-     * @var string Id of the last processed record.
+     * @var string
      */
     protected $id;
 
     /**
      * @param string $identifier The process identifier. The path to the processing file or custom name.
      * @param string $id Id of the last processed record.
+     *                   E.g. Id of the database record or index of the file line.
      */
     public function __construct(string $identifier, string $id = null)
     {
@@ -29,7 +30,9 @@ class ProcessingPoint
         $this->id = $id;
     }
 
-
+    /**
+     * @return string The process identifier.
+     */
     public function getIdentifier(): string
     {
         return $this->identifier;
@@ -37,7 +40,7 @@ class ProcessingPoint
 
     /**
      * @param string $id Id of the last processed record.
-     *                         E.g. id of the database record or index of the file line.
+     *                   E.g. Id of the database record or index of the file line.
      *
      * @return $this
      */
@@ -48,7 +51,9 @@ class ProcessingPoint
         return $this;
     }
 
-
+    /**
+     * @return string|null Id of the last processed record.
+     */
     public function getId(): ?string
     {
         return $this->id;

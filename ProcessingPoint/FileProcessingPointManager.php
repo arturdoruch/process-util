@@ -28,12 +28,16 @@ class FileProcessingPointManager implements ProcessingPointManagerInterface
         Filesystem::createDirectory($this->outputDirectory = $outputDirectory);
     }
 
-
-    public function get(string $identifier): ProcessingPoint
+    /**
+     * @param string $filename The path to the processing file.
+     *
+     * @return ProcessingPoint
+     */
+    public function get(string $filename): ProcessingPoint
     {
-        $index = Filesystem::read($this->getFilename($identifier));
+        $index = Filesystem::read($this->getFilename($filename));
 
-        return new ProcessingPoint($identifier, $index);
+        return new ProcessingPoint($filename, $index);
     }
 
 
@@ -43,13 +47,13 @@ class FileProcessingPointManager implements ProcessingPointManagerInterface
     }
 
     /**
-     * Removes the file with processing point.
+     * Removes the file with the last id of the processing file.
      *
-     * {@inheritdoc}
+     * @param string $filename The path to the processing file.
      */
-    public function remove(string $identifier)
+    public function remove(string $filename)
     {
-        Filesystem::remove($this->getFilename($identifier));
+        Filesystem::remove($this->getFilename($filename));
     }
 
 
